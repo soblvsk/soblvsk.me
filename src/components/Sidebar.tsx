@@ -11,8 +11,8 @@ const items = {
   '/career': {
     name: 'Career',
   },
-  '/contact': {
-    name: 'Contact',
+  '/contacts': {
+    name: 'Contacts',
   },
 };
 
