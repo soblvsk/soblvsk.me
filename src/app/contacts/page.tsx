@@ -1,10 +1,10 @@
 import { ContactCard } from '@/components/ContactCard';
-import conctacts from '../data/contact.json';
+import conctacts from '@/data/contact.json';
 
 export default function Contact() {
   return (
     <section className='bg-[#0a0b0b] p-6 rounded-xl'>
-      <h1 className='font-bold text-2xl mb-8 uppercase'>Contact</h1>
+      <h1 className='font-bold text-2xl mb-8 uppercase'>Contacts</h1>
       <p className='text-neutral-400'>
         On this page are all my contacts to get in touch with me.
       </p>
