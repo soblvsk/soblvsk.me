@@ -1,7 +1,7 @@
 import { EducationCard } from '@/components/EducationCard';
 import { TechCard } from '@/components/TechCard';
-import education from '../data/education.json';
-import skills from '../data/skills.json';
+import education from '@/data/education.json';
+import skills from '@/data/skills.json';
 
 export default function Career() {
   return (
