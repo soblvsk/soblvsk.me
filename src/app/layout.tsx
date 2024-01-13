@@ -1,9 +1,10 @@
 import './globals.css';
-import clsx from 'clsx';
+
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import Sidebar from '../components/Sidebar';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -13,6 +14,15 @@ export const metadata: Metadata = {
     template: '%s | soblvsk',
   },
   description: 'Soblvsk Portfolio',
+  openGraph: {
+    title: {
+      default: 'soblvsk',
+      template: '%s | soblvsk',
+    },
+    description: 'Soblvsk Portfolio',
+    type: 'website',
+    siteName: 'soblvsk.me',
+  },
 };
 
 export default function RootLayout({
@@ -21,12 +31,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en' className={clsx('text-white bg-[#111111]', inter.variable)}>
-      <body className='antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto'>
-        <main className='flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0'>
-          <Sidebar />
-          {children}
-        </main>
+    <html lang="en" className={inter.variable}>
+      <body className="antialiased">
+        <div className="relative flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1 px-6 pt-10 pb-16">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
