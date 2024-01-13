@@ -1,27 +1,19 @@
 'use client';
 
+import { ContactProps } from '@/types/contact';
 import { Icon } from '@iconify/react';
 
-interface Contact {
-  img: string;
-  title: string;
-  description: string;
-  href: string;
-}
+export const ContactCard = (props: ContactProps) => {
+  const { icon, href, title } = props;
 
-export const ContactCard = ({ img, title, description, href }: Contact) => {
+  const handleAction = (link: string) => window.open(link, '_blank');
   return (
-    <a
-      href={href}
-      className='rounded-xl transition-all duration-300 shadow-sm lg:hover:shadow-md flex items-center gap-5 py-4 px-4 bg-neutral-900 hover:bg-zinc-800'
+    <button
+      className="rounded-xl transition-all duration-300 inline-flex items-center justify-center whitespace-nowrap gap-2 py-2 px-5 border border-neutral-700 bg-neutral-900 hover:bg-neutral-800"
+      onClick={() => handleAction(href)}
     >
-      <div className='overflow-hidden'>
-        <Icon className='w-8 h-8' icon={img} />
-      </div>
-      <div className='space-y-1'>
-        <h6>{title}</h6>
-        <p className='text-neutral-400 text-sm'>{description}</p>
-      </div>
-    </a>
+      <Icon className="w-6 h-6" icon={icon} />
+      <span>{title}</span>
+    </button>
   );
 };
