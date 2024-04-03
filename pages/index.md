@@ -13,7 +13,7 @@ My journey into IT began in 2021 when I started exploring the {C++|https://isocp
 
 I am always striving for continuous development, and I believe that teamwork provides a great opportunity for personal and professional growth.
 
-Outside of programming, I also like taking pictures, reading books, watching anime, listening to music, traveling, and learning something new from people.
+Outside of programming, I also like taking pictures, reading books, watching anime, listening to music, traveling, self developing and learning something new from people.
 
 <div flex-auto />
 
