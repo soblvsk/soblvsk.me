@@ -13,7 +13,7 @@ experience:
       company: 'IF'
       form_company: 'Stil-IF LLC'
       location: 'Russia, Krasnoyarsk'
-      start_date: Sep 2023
+      start_date: '2023-09'
 
   Education:
     - title: 'Reshetnev Siberian State University'
@@ -29,24 +29,24 @@ experience:
       url: 'https://disk.yandex.ru/i/9c9bTvnXWqjCqA'
       degree: "Yandex School"
       major: 'Interface Development School'
-      start_date: Jun 2023
-      end_date: Aug 2023
+      start_date: '2023-06'
+      end_date: '2023-08'
 
     - title: 'RS School'
       icon: 'rs-school'
       url: 'https://app.rs.school/certificate/fc1iyfa6'
       degree: "Course"
       major: 'JS/FE 2022Q3'
-      start_date: Sep 2022
-      end_date: Mar 2023
+      start_date: '2022-09'
+      end_date: '2023-03'
 
     - title: 'RS School'
       icon: 'rs-school'
       url: 'https://app.rs.school/certificate/auw32uzu'
       degree: "Course"
       major: 'JS/FE PRE-SCHOOL 2022Q2'
-      start_date: May 2022
-      end_date: Aug 2022
+      start_date: '2022-05'
+      end_date: '2022-08'
 ---
 
 <!-- @layout-full-width -->

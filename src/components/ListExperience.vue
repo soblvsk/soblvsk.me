@@ -1,8 +1,37 @@
 <script setup lang="ts">
+import { differenceInMonths, differenceInYears, format } from 'date-fns';
+
 defineProps<{ experience: Record<string, any[]> }>();
 
 function slug(name: string) {
   return name.toLowerCase().replace(/[\s\\\/]+/g, '-');
+}
+
+function startDateFormatted(start_date: string) {
+  return format(new Date(start_date), 'MMM yyyy');
+}
+
+function endDateFormatted(end_date?: string) {
+  return end_date
+    ? format(new Date(end_date), 'MMM yyyy')
+    : 'Present';
+}
+
+function durationText(start_date: string, end_date: string) {
+  const startDate = new Date(start_date);
+  const endDate = new Date(end_date || Date.now());
+  const durationYears = differenceInYears(endDate, startDate);
+  const durationMonths = (differenceInMonths(endDate, startDate) % 12) + 1;
+
+  const durationYearsText
+    = durationYears > 0 ? `${durationYears} Year${durationYears > 1 ? 's' : ''}` : '';
+
+  const durationMonthsText
+    = durationMonths > 0 ? `${durationMonths} Month${durationMonths > 1 ? 's' : ''}` : '';
+
+  const comma = durationYears > 0 && durationMonths > 0 ? ', ' : '';
+
+  return `${durationYearsText}${comma}${durationMonthsText}`;
 }
 </script>
 
@@ -47,8 +76,17 @@ function slug(name: string) {
               <div class="text-normal">{{ item.title }}</div>
               <div class="text-sm opacity-50 font-italic" v-html="item.degree" />
               <div class="text-sm opacity-50 font-italic" v-html="item.major" />
-              <div class="text-sm opacity-50 font-normal">
-                <span>{{ item.start_date }}</span> - <span>{{ item.end_date || 'Present' }}</span>
+              <div v-if="typeof item.start_date === 'number'" class="text-sm opacity-50 font-normal">
+                <span>{{ `${item.end_date - item.start_date} Years` }}</span>
+              </div>
+              <div v-else class="text-sm opacity-50 font-normal">
+                <span>{{ durationText(item.start_date, item.end_date) }}</span>
+              </div>
+              <div v-if="typeof item.start_date === 'number'" class="text-sm opacity-50 font-normal">
+                <span>{{ item.start_date }}</span> - <span>{{ item.end_date }}</span>
+              </div>
+              <div v-else class="text-sm opacity-50 font-normal">
+                <span>{{ startDateFormatted(item.start_date) }}</span> - <span>{{ endDateFormatted(item.end_date) }}</span>
               </div>
             </div>
           </template>
@@ -66,7 +104,10 @@ function slug(name: string) {
               </div>
               <div class="text-sm opacity-50" v-html="item.form_company" />
               <div class="text-sm opacity-50 font-normal">
-                <span>{{ item.start_date }}</span> - <span>{{ item.end_date || 'Present' }}</span>
+                <span>{{ durationText(item.start_date, item.end_date) }}</span>
+              </div>
+              <div class="text-sm opacity-50 font-normal">
+                <span>{{ startDateFormatted(item.start_date) }}</span> - <span>{{ endDateFormatted(item.end_date) }}</span>
               </div>
             </div>
           </template>
