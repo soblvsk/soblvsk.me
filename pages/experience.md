@@ -14,6 +14,7 @@ experience:
       form_company: 'Stil-IF LLC'
       location: 'Russia, Krasnoyarsk'
       start_date: '2023-09'
+      end_date: '2024-06'
 
   Education:
     - title: 'Reshetnev Siberian State University'
